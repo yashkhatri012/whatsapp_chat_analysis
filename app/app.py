@@ -3,14 +3,19 @@ import preprocessor, helper
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.title("How To Use: ")
-st.markdown("""
-    ### 📌 **Instructions:**
-    1. Open the **WhatsApp** chat you want to analyze.
-    2. Tap on the **three dots** (top-right corner) → **More** → **Export Chat**.
-    3. Choose **Without Media** (this will generate a **.txt** file).
-    4. Upload the exported **.txt** file to start the analysis.
-    """)
+instructions_container = st.empty()  # Create an empty container for instructions
+
+# Display instructions inside the container
+with instructions_container:
+    st.title("How To Use: ")
+    st.markdown("""
+        ### 📌 **Instructions:**
+        0. click on the top left to open the side bar 
+        1. Open the **WhatsApp** chat you want to analyze.
+        2. Tap on the **three dots** (top-right corner) → **More** → **Export Chat**.
+        3. Choose **Without Media** (this will generate a **.txt** file).
+        4. Upload the exported **.txt** file to start the analysis.
+        """)
 
 st.sidebar.title("Whatsapp Chat Analyzer")
 
@@ -33,6 +38,7 @@ if uploaded_file is not None:
 
 
     if st.sidebar.button("Show Analysis"): 
+        instructions_container.empty()
         num_messages , num_media_messages , num_links =helper.fetch_stats(selected_user, df)
         st.title("Top Statistics")
         col1, col2, col3, col4 = st.columns(4)
