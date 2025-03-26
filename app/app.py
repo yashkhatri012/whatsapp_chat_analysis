@@ -2,6 +2,16 @@ import streamlit as st
 import preprocessor, helper
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+st.title("How To Use: ")
+st.markdown("""
+    ### 📌 **Instructions:**
+    1. Open the **WhatsApp** chat you want to analyze.
+    2. Tap on the **three dots** (top-right corner) → **More** → **Export Chat**.
+    3. Choose **Without Media** (this will generate a **.txt** file).
+    4. Upload the exported **.txt** file to start the analysis.
+    """)
+
 st.sidebar.title("Whatsapp Chat Analyzer")
 
 uploaded_file = st.sidebar.file_uploader("Choose a file")
@@ -18,14 +28,7 @@ if uploaded_file is not None:
     user_list.insert(0,"Overall")
     selected_user = st.sidebar.selectbox("Show analysis wrt",user_list)
 
-    st.title("How To Use: ")
-    st.markdown("""
-    ### 📌 **Instructions:**
-    1. Open the **WhatsApp** chat you want to analyze.
-    2. Tap on the **three dots** (top-right corner) → **More** → **Export Chat**.
-    3. Choose **Without Media** (this will generate a **.txt** file).
-    4. Upload the exported **.txt** file to start the analysis.
-    """)
+    
 
 
 
