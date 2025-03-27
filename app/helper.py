@@ -13,7 +13,7 @@ def fetch_stats(selected_user, df):
 
     # fetch the number of messages
     num_messages = df.shape[0]
-    num_media_messages = df[df['message'] == '<Media omitted>\n'].shape[0]
+    num_media_messages = df[df['message'] == '<Media omitted>'].shape[0]
     # fetch number of links shared
     links = []
     for message in df['message']:
@@ -38,7 +38,7 @@ def word_cloud(selected_user, df):
     f = open('stop_hinglish.txt','r')
     stop_words = f.read()
     temp = df[df['user'] != 'group_notification']
-    temp = temp[temp['message'] != '<Media omitted>\n']
+    temp = temp[temp['message'] != '<Media omitted>']
     def remove_stop_words(message):
         y = []
         for word in message.lower().split():
@@ -60,7 +60,7 @@ def most_common_words(selected_user,df):
         df = df[df['user'] == selected_user]
 
     temp = df[df['user'] != 'group_notification']
-    temp = temp[temp['message'] != '<Media omitted>\n']
+    temp = temp[temp['message'] != '<Media omitted>']
 
     words = []
 

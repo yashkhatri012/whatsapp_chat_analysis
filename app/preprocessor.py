@@ -56,14 +56,17 @@ def preprocess(data):
         if len(user_message_split) > 1:
             user = user_message_split[0].strip()
             message = user_message_split[1].strip()
+            
+            # Check if it's a media message
+            if '<Media omitted>' in message or 'Media omitted' in message:
+                message = '<Media omitted>'
+            
+            dates.append(date_str)
+            users.append(user)
+            messages.append(message)
         else:
-            # System message without user
-            user = 'group_notification'
-            message = content.strip()
-        
-        dates.append(date_str)
-        users.append(user)
-        messages.append(message)
+            # System message without user - skip it as per requirement
+            continue
     
     # Print the number of matches found
     print(f"Extracted {len(dates)} messages using {time_format} format")

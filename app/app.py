@@ -25,7 +25,7 @@ if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
     data = bytes_data.decode("utf-8")
     df = preprocessor.preprocess(data)
-
+ 
     # fetch unique users
     user_list = df['user'].unique().tolist()
     if 'group_notification' in user_list:
