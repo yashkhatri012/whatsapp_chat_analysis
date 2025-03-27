@@ -5,6 +5,8 @@ from urlextract import URLExtract
 from wordcloud import WordCloud
 from collections import Counter #helps to count freq of words
 
+
+
 def fetch_stats(selected_user, df):
     extract=  URLExtract()
 
