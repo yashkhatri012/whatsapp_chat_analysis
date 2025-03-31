@@ -8,10 +8,10 @@ def preprocess(data):
     
     # More robust patterns for different WhatsApp chat formats
     # 12-hour format with am/pm
-    pattern_12h = r'(\d{1,2}/\d{1,2}/\d{2,4}),\s(\d{1,2}:\d{2})\s([ap]m)\s-\s(.+)'
+    pattern_12h = r'\[(\d{1,2}/\d{1,2}/\d{4}),\s(\d{1,2}:\d{2}:\d{2})\s([ap]m)\]\s(.+)'
     
     # 24-hour format
-    pattern_24h = r'(\d{1,2}/\d{1,2}/\d{2,4}),\s(\d{1,2}:\d{2})\s-\s(.+)'
+    pattern_24h = r'\[(\d{1,2}/\d{1,2}/\d{4}),\s(\d{1,2}:\d{2}:\d{2})\]\s(.+)'
     
     # Try with 12-hour format first
     matches_12h = list(re.finditer(pattern_12h, data))
